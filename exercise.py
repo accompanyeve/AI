@@ -1,11 +1,29 @@
 from os import sep
 import pandas as pd
+# df = pd.read_csv("./testdata/tmp1.csv",sep='|',names=['d1','d2'])
+# df.drop(df.columns[[0,]], axis=1, inplace=True)
+# df.dropna()
+# print(df.head())
+
+# df.to_csv("./testdata/tmp11.csv",sep="｜")
+df = pd.read_csv("./testdata/train_dataset.csv",index_col = 0,sep='\t',names=['index','Text','Summary'],nrows=10)
+print(df['d2'][4])
+print(df['d3'][4])
+
+
+
+
+
+
+
+
+
 # import numpy as np
-df = pd.read_csv("./testdata/train_dataset.csv",sep='&',names=['ab'])
-tmp1 = pd.DataFrame()
-tmp2 = pd.DataFrame()
-i = 0
-t = 0
+# df = pd.read_csv("./testdata/train_dataset.csv",sep='&',names=['ab'])
+# tmp1 = pd.DataFrame()
+# tmp2 = pd.DataFrame()
+# i = 0
+# t = 0
 # if i<10:
 #     t=0
 # print(df.iloc[0]['ab'][0:6])
@@ -19,21 +37,21 @@ t = 0
 #     print(t)
 # df[0].apply(creat)
 
-for i in range(9000):
-    if i<10:
-        t = 0
-    elif i < 100:
-        t = 1
-    elif i < 1000:
-        t = 2
-    else:
-        t = 3
-    if df.iloc[i]['ab'][0:6+t].replace("\t","") == str(str(i)+"by ."):
-        tmp1 = tmp1.append(df.iloc[i])
-    else:
-        tmp2 = tmp2.append(df.iloc[i])
-tmp1.to_csv("./testdata/tmp1.csv",sep="｜")
-tmp2.to_csv("./testdata/tmp2.csv",sep="｜")
+# for i in range(9000):
+#     if i<10:
+#         t = 0
+#     elif i < 100:
+#         t = 1
+#     elif i < 1000:
+#         t = 2
+#     else:
+#         t = 3
+#     if df.iloc[i]['ab'][0:6+t].replace("\t","") == str(str(i)+"by ."):
+#         tmp1 = tmp1.append(df.iloc[i])
+#     else:
+#         tmp2 = tmp2.append(df.iloc[i])
+# tmp1.to_csv("./testdata/tmp1.csv",sep="｜")
+# tmp2.to_csv("./testdata/tmp2.csv",sep="｜")
 
 
 # print(df.iloc[0]['a'][2:6])
