@@ -104,8 +104,9 @@ for i in range(len(cleaned_text)):
         tmp_text=[]
         tmp_summary=[]
         tmp_text.append(cleaned_text[i])
-        short_text.append([].append(cleaned_text[i]))
-        short_summary.append([].append(cleaned_summary[i]))
+        tmp_summary.append(cleaned_summary[i])
+        short_text.append(tmp_text)
+        short_summary.append(tmp_summary)
         
 #df=pd.DataFrame({'text':short_text,'summary':short_summary})
 
@@ -118,12 +119,19 @@ for i in range(len(cleaned_text)):
 # for j in range(len(short_text)):
 #     dic_text[j]=short_text[j]
 
-summary = json.dumps(short_summary,indent=2,sort_keys=True)
-text = json.dumps(short_text,indent=2,sort_keys=True)
+# summary = json.dump(short_summary)
+# text = json.dump(short_text)
 
 
+with open("summary.json","w") as f:
+     json.dump(short_summary,f)
 
+with open("text.json","w") as f1:
+     json.dump(short_text,f1)
 # with open('summary.json','w',encoding='utf-8') as f:
 #     f.write(summary)
 # with open('text.json','w',encoding='utf-8') as f1:
 #     f1.write(text)    
+# s = json.loads(summary)
+# print(len(s))
+# print(s[0])
