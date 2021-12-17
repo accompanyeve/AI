@@ -1,14 +1,28 @@
-from os import sep
+# from os import sep
 import pandas as pd
-# df = pd.read_csv("./testdata/tmp1.csv",sep='|',names=['d1','d2'])
+import json
+df = pd.read_csv("./testdata/train.csv",sep='\t',index_col=0)
+
+# text = df['text'].to_json()
+# summary = df['summary'].to_json()
+# with open("./testdata/text.json", "w", encoding='utf-8') as f:
+#     f.write(text)
+
+# with open("./testdata/summary.json", "w", encoding='utf-8') as f:
+#     f.write(summary)
 # df.drop(df.columns[[0,]], axis=1, inplace=True)
 # df.dropna()
 # print(df.head())
+with open("./testdata/text.json", "r", encoding='utf-8') as f:
+    data2 = json.loads(f.read()) 
 
+print(data2['0']) 
+       #
 # df.to_csv("./testdata/tmp11.csv",sep="｜")
-df = pd.read_csv("./testdata/train_dataset.csv",index_col = 0,sep='\t',names=['index','Text','Summary'],nrows=10)
-print(df['d2'][4])
-print(df['d3'][4])
+# df = pd.read_csv("./testdata/train_dataset.csv",index_col = 0,sep='\t',names=['index','Text','Summary'],nrows=10)
+# print(df['d2'][4])
+# print(df['d3'][4])
+
 
 
 
