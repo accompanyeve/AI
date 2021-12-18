@@ -37,27 +37,31 @@ contraction_mapping = {"ain't": "is not", "aren't": "are not","can't": "cannot",
 #stop_words = set(stopwords.words('english')) 
 
 def text_cleaner(text,num):
-    newString = text.lower()
+    #newString = text.lower()
+    newString = text
     #newString = BeautifulSoup(newString, "lxml").text
-    newString = re.sub(r'\([^)]*\)', '', newString)
-    newString = re.sub('"','', newString)
+    #newString = re.sub(r'\([^)]*\)', '', newString)
+    #newString = re.sub('"','', newString)
     newString = re.sub('^.*?\|','',newString)
     newString = re.sub('.\supdated\s:\s.\s\d{2}:\d{2}\sest\s,\s\d+\s(february|march|april|may|june|july|august|september|october|november|december)\s\d+\s.','',newString)
-    newString = ' '.join([contraction_mapping[t] if t in contraction_mapping else t for t in newString.split(" ")])    
-    newString = re.sub(r"'s\b","",newString)
-    newString = re.sub("[^a-zA-Z]", " ", newString) 
-    newString = re.sub('[m]{2,}', 'mm', newString)
+    #newString = ' '.join([contraction_mapping[t] if t in contraction_mapping else t for t in newString.split(" ")])    
+    #newString = re.sub(r"'s\b","",newString)
+    #newString = re.sub("[^a-zA-Z]", " ", newString) 
+    #newString = re.sub('[m]{2,}', 'mm', newString)
     if(num==0):
-        tokens=newString.split()
+        pass
+        #tokens=newString.split()
         #tokens = [w for w in newString.split() if not w in stop_words]
     else:
-        tokens=newString.split()
+        pass
+        #tokens=newString.split()
     # long_words=[]
     # for i in tokens:
     #     if len(i)>1:                                                 #removing short word
     #         long_words.append(i)   
     # return (" ".join(long_words)).strip()
-    return (" ".join(tokens)).strip()
+    #return (" ".join(tokens)).strip()
+    return newString
 
 #call the function
 cleaned_text = []
@@ -123,15 +127,11 @@ for i in range(len(cleaned_text)):
 # text = json.dump(short_text)
 
 
-with open("summary.json","w") as f:
-     json.dump(short_summary,f)
+# with open("summary.json","w") as f:
+#      json.dump(short_summary,f)
 
-with open("text.json","w") as f1:
-     json.dump(short_text,f1)
-# with open('summary.json','w',encoding='utf-8') as f:
-#     f.write(summary)
-# with open('text.json','w',encoding='utf-8') as f1:
-#     f1.write(text)    
-# s = json.loads(summary)
-# print(len(s))
-# print(s[0])
+# with open("text.json","w") as f1:
+#      json.dump(short_text,f1)
+
+print(len(short_summary))
+print(short_summary[0])
