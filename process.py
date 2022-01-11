@@ -5,7 +5,7 @@ import warnings
 import json
 pd.set_option("display.max_colwidth", 200)
 warnings.filterwarnings("ignore")
-data = pd.read_csv("./testdata/train_dataset.csv",index_col = 0,sep='\t',names=['index','Text','Summary'])
+data = pd.read_csv("./testdata/test_dataset.csv",index_col = 0,sep='\t',names=['index','Text','Summary'])
 
 data.drop_duplicates(subset=['Text'],inplace=True)#dropping duplicates
 data.dropna(axis=0,inplace=True)#dropping na
@@ -134,4 +134,5 @@ for i in range(len(cleaned_text)):
 #      json.dump(short_text,f1)
 
 print(len(short_summary))
-print(short_summary[0])
+
+# print(short_summary[0])

@@ -1,7 +1,7 @@
 # from os import sep
 import pandas as pd
 import json
-df = pd.read_csv("./testdata/train.csv",sep='\t',index_col=0)
+df = pd.read_csv("./testdata/test_dataset.csv",sep='\t',index_col=0)
 
 # text = df['text'].to_json()
 # summary = df['summary'].to_json()
@@ -10,13 +10,13 @@ df = pd.read_csv("./testdata/train.csv",sep='\t',index_col=0)
 
 # with open("./testdata/summary.json", "w", encoding='utf-8') as f:
 #     f.write(summary)
-# df.drop(df.columns[[0,]], axis=1, inplace=True)
-# df.dropna()
-# print(df.head())
-with open("./testdata/text.json", "r", encoding='utf-8') as f:
-    data2 = json.loads(f.read()) 
+#df.drop(df.columns[[0,]], axis=1, inplace=True)
+#df.dropna()
+#print(df.head())
+# with open("./testdata/text.json", "r", encoding='utf-8') as f:
+#     data2 = json.loads(f.read()) 
 
-print(data2['0']) 
+# print(data2['0']) 
        #
 # df.to_csv("./testdata/tmp11.csv",sep="｜")
 # df = pd.read_csv("./testdata/train_dataset.csv",index_col = 0,sep='\t',names=['index','Text','Summary'],nrows=10)
